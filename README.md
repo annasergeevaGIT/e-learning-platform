@@ -1,112 +1,91 @@
 # Takeaway Cloud Platform
 
-A **reactive**, **microservice-based** food delivery backend built with Spring Cloud, Kafka, Redis, and Docker. Designed to manage food orders, user authentication, menu items, and reviews in a scalable, fault-tolerant, and cloud-native environment.
-<p align="left">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=java,spring,postgres,redis,kafka,docker&theme=light" />
-  </a>
-</p>
+A reactive, cloud-native, microservices-based backend platform built with Spring Boot, Spring Cloud, Apache Kafka, Redis, PostgreSQL, and Docker.
+The system provides scalable, fault-tolerant, and observable services for managing users, courses, enrollments, feedback, and learning interactions in a distributed environment.
 
-### Overview
+This platform delivers the core backend infrastructure for an e-learning system using modern microservice architecture principles, including horizontal scalability, decentralized configuration, service discovery, distributed tracing, resilience, and event-driven communication.
 
-This system provides backend infrastructure for a Takeaway food delivery service using microservices architecture & supports:
+## Microservices Architecture
 
-- Horizontal scalability
-- Decentralized configuration
-- Observability and tracing
-- Fault tolerance and resilience
+| Service                                                               | Description                       |
+|-----------------------------------------------------------------------|-----------------------------------|
+| [Enrollment Service](https://github.com/annasergeevaGIT/enrollment-service-e-learning-platform)   | Manages course enrollments |
+| [Course Service](https://github.com/annasergeevaGIT/course-service-e-learning-platform)   | Handles courses and content|
+| [Feedback Service](https://github.com/annasergeevaGIT/eedback-service-e-learning-platform) | Manages ratings and feedback |
+| [Course Aggregate Service](https://github.com/annasergeevaGIT/aggregate-service-e-learning-platform)| Aggregates course and review data |
+| [Gateway Service](https://github.com/annasergeevaGIT/gateway-service-e-learning-platform)| Routing, security, rate limiting |
+| [Discovery Service](https://github.com/annasergeevaGIT/discovery-service-e-learning-platform)| Eureka Service registry |
+| [Dispatcher Service](https://github.com/annasergeevaGIT/dispatcher-service-e-learning-platform)| Kafka producer/consumer (event streaming) |
+| [Docker Deployment](https://github.com/annasergeevaGIT/dispatcher-service-e-learning-platform)| Centralized configuration management |
 
+##  Architecture diagram
 ![diagram-export-5-15-2025-10_01_38-PM](https://github.com/user-attachments/assets/8f1875cd-ae41-4ca2-8b73-8ba56e5e4ebf)
 
 ---
 
-### ✅ Core Responsibilities
+### Core Responsibilities
 
-- Menu management for the online café
-- User registration, authentication & role management
-- Order placement and processing
-- User reviews for menu items
-- Data provisioning for frontend consumption
+- User registration, authentication, and role management
+- Course management
+- Enrollment processing
+- Feedback and reviews
+- Aggregated course data
+- Backend APIs for frontend clients
+- Observability, monitoring, and performance analysis
+- End-to-end and isolated testing 
 
 ---
 
-### 🧰 Technology Stack
+### Technology Stack
+
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=java,spring,postgres,hibernate,redis,kafka,docker,github,gradle,postman,grafana,prometheus&theme=light" />
+  </a>
+</p>
 
 - **Framework:** Spring Boot, Spring Cloud
-- **Reactive REST APIs:** WebFlux
+- **Reactive REST APIs:** WebFlux / Virtual Threads
 - **Messaging:** Apache Kafka
 - **Configuration Management:** Spring Cloud Config
 - **Service Discovery & Routing:** Eureka, Spring Cloud Gateway
 - **Resilience & Load Balancing:** Resilience4j, Spring Cloud LoadBalancer
 - **Caching:** Redis
-- **Tracing & Logging:** Sleuth, Zipkin, Logback (ELK planned)
-- **Persistence:** PostgreSQL / MongoDB (for reactive use cases)
+- **Tracing & Logging:** Zipkin, Logback
+- **Persistence:** PostgreSQL (JPA/Hibernate + R2DBC where required)
+- **Metrics:** Prometheus + Grafana
+- **Security:** JWT / Keycloak
 - **Containerization:** Docker, Docker Compose
-- **API Documentation:** SpringDoc OpenAPI (Swagger)
+- **API Documentation:** OpenAPI (Swagger)
 
 ---
 
-### 🧩 Microservices Architecture
+### Key Features
 
-Each service is independently deployable and follows the 12-Factor App principles:
-
-- **User Service** – Manages users, roles, and authentication
-- **Menu Service** – Handles dishes, categories, and pricing
-- **Order Service** – Processes food orders with reliable messaging
-- **Review Service** – Manages user-generated dish reviews
-- **Notification Service** – Sends real-time updates via Kafka
-- **API Gateway** – Routes client requests, enforces security, and applies rate limiting
+Reactive programming with WebFlux, Event-driven architecture via Kafka, JWT-based stateless authentication, Circuit breaker patterns with Resilience4j, Service discovery and dynamic routing, Full containerized deployment, Observability-first design
 
 ---
 
-### 🛠️ Infrastructure Components
+### Running the Project with Docker
 
-- **Config Server** – Centralized configuration
-- **Eureka Server** – Service registry and discovery
-- **Kafka Broker** – Asynchronous event streaming
-- **Redis** – Distributed caching
-- **Zipkin** – Distributed tracing for latency monitoring
-
----
-
-### 🚀 Key Highlights
-
-- ⚡ Reactive programming with **Spring WebFlux**
-- 📬 Asynchronous messaging using **Kafka**
-- 🛡️ Secure JWT-based authentication with gateway-level enforcement
-- 🔄 Circuit Breaker support via **Resilience4j**
-- 🧭 Service discovery & routing via **Eureka + API Gateway**
-- 🐳 Full containerization with **Docker & Docker Compose**
-
----
-
-### 🧪 Running the Project with Docker
-
-1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-org/takeaway-cloud-platform.git
-   cd takeaway-cloud-platform
-   ```
-
-2. **Build and start services:**
-   ```bash
-   ./mvnw clean package -DskipTests
-   docker-compose up --build
+   git clone https://github.com/annasergeevaGIT/docker-deployment-e-learning-platform
+   cd docker-deployment-e-learning-platform
+   docker-compose up -d
    ```
 
 ---
 
-### 🧱 Available Docker Services
+### Available Docker Services
 
-- `config-server` – Centralized configuration
-- `eureka-server` – Service discovery registry
-- `gateway-service` – API Gateway
-- `user-service`, `order-service`, `menu-service`, `review-service`
+- `gateway-service`, `eureka-server`, `config-server`
+- `order-service`, `menu-service`, `review-service`
 - `notification-service`, `kafka`, `zookeeper`, `redis`, `zipkin`, `postgres`
+- `keycloak`, `prometheus`, `grafana`, `loki`, `tempo`, `k6`
 
 ---
 
-### 📐 12-Factor App Practices
+### 12-Factor App Practices
 
 | Principle                  | Implementation Example |
 |---------------------------|------------------------|
@@ -124,7 +103,7 @@ Each service is independently deployable and follows the 12-Factor App principle
 
 ---
 
-### 🧬 Microservice Design Patterns
+### Microservice Design Patterns
 
 - **Service Discovery:** Eureka
 - **API Gateway:** Spring Cloud Gateway
@@ -136,38 +115,29 @@ Each service is independently deployable and follows the 12-Factor App principle
 
 ---
 
-### 📁 Project Structure
+### Project Structure
 
 ```
-takeaway-cloud-platform/
+e-learning-platform/
 ├── config-server/
-├── eureka-server/
+├── discovery-service/
 ├── gateway-service/
-├── user-service/
-├── order-service/
-├── menu-service/
-├── review-service/
-├── notification-service/
-├── common-lib/
+├── course-service/
+├── enrollment-service/
+├── feedback-service/
+├── aggregate-service/
+├── dispatcher-service/
+├── config-repository/
 └── docker-compose.yml
 ```
 
 ---
 
-### 🔐 Authentication & Authorization
+### Authentication & Authorization
 
 - **Authentication:** Stateless JWT tokens
 - **Authorization:** Role-based (CUSTOMER, EMPLOYEE, ADMIN)
 - **Security Layer:** Enforced via API Gateway filters
-
----
-
-### 🤝 Contributing
-
-1. Fork the repository  
-2. Create a feature branch  
-3. Commit your changes  
-4. Open a pull request
 
 ---
 
