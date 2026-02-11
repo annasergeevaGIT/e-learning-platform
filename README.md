@@ -1,4 +1,4 @@
-# Takeaway Cloud Platform
+# E-Learning Cloud Platform
 
 A reactive, cloud-native, microservices-based backend platform built with Spring Boot, Spring Cloud, Apache Kafka, Redis, PostgreSQL, and Docker.
 The system provides scalable, fault-tolerant, and observable services for managing users, courses, enrollments, feedback, and learning interactions in a distributed environment.
