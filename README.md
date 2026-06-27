@@ -19,7 +19,7 @@ This platform delivers the core backend infrastructure for an e-learning system 
 | [Docker Deployment](https://github.com/annasergeevaGIT/docker-deployment-e-learning-platform)| Centralized configuration management |
 
 ##  Architecture diagram
-![diagram-export-5-15-2025-10_01_38-PM](https://github.com/user-attachments/assets/8f1875cd-ae41-4ca2-8b73-8ba56e5e4ebf)
+![diagram-export-1-7-2026-2_23_25-PM](https://github.com/user-attachments/assets/4a96f8b2-043c-4767-991d-f6b532f10275)
 
 ---
 
